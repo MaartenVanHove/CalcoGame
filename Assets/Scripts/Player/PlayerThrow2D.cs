@@ -49,6 +49,8 @@ public class PlayerThrow2D : MonoBehaviour
     void Update()
     {
         UpdateCoyoteTime();
+        ResetAirSnapOnLand();
+
         HandlePickup();
         HandleThrow();
         HandleHit();
@@ -72,6 +74,11 @@ public class PlayerThrow2D : MonoBehaviour
             coyoteTimer -= Time.deltaTime;
     }
 
+    private void ResetAirSnapOnLand()
+    {
+        if (IsGrounded())
+            hasSnappedThisAir = false;
+    }
 
     // =========================
     // PICKUP
@@ -141,8 +148,26 @@ public class PlayerThrow2D : MonoBehaviour
             bool canUseCoyote = coyoteTimer > 0f;
             bool airborne = !IsGrounded();
 
-          
+            if (airborne || canUseCoyote)
+            {
+                float distance = Vector2.Distance(transform.position, projectile.transform.position);
+
+                if (distance <= snapRadius)
+                {
+                    hasSnappedThisAir = true;
+
+                    Vector2 fromBall = (rb.position - (Vector2)projectile.transform.position).normalized;
+
+                    if (fromBall.y < 0)
+                        fromBall.y = Mathf.Abs(fromBall.y);
+
+                    rb.linearVelocity = Vector2.zero;
+                    rb.AddForce(fromBall * snapBounceForce, ForceMode2D.Impulse);
+
+                    projectile.BoostTrail();
                 }
+            }
+        }
     }
 
     // =========================
@@ -186,6 +211,9 @@ public class PlayerThrow2D : MonoBehaviour
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
         }
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, snapRadius);
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, hitRadius);

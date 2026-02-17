@@ -1105,9 +1105,21 @@ PrefabInstance:
       propertyPath: hitCounterText
       value: 
       objectReference: {fileID: 1680521372}
+    - target: {fileID: 4874297754834167317, guid: 2be5c5462d505d6468f3f34042fb17a7, type: 3}
+      propertyPath: m_GravityScale
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6978480790401755623, guid: 2be5c5462d505d6468f3f34042fb17a7, type: 3}
       propertyPath: jumpForce
-      value: 9
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978480790401755623, guid: 2be5c5462d505d6468f3f34042fb17a7, type: 3}
+      propertyPath: dashVelocity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978480790401755623, guid: 2be5c5462d505d6468f3f34042fb17a7, type: 3}
+      propertyPath: doubleJumpForce
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1450,12 +1462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32aa56febcecee14aaa0a5aaa4382b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CurvedTextFollow
-  target: {fileID: 452046914}
-  worldOffset: {x: 0, y: 2, z: 0}
-  cam: {fileID: 0}
-  arcAngle: 42
-  radius: 74.6
-  curveClockwise: 0
 --- !u!1 &1942399776
 GameObject:
   m_ObjectHideFlags: 0

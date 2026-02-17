@@ -552,6 +552,7 @@ GameObject:
   - component: {fileID: 879900061}
   - component: {fileID: 879900060}
   - component: {fileID: 879900059}
+  - component: {fileID: 879900063}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -677,6 +678,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &879900063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879900058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc615d1bb6e22714db7cb7e0177945b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingTowardsPlayer
+  target: {fileID: 452046914}
+  smoothTime: 0.25
+  offset: {x: 0, y: 1}
 --- !u!1 &947152323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,11 +1035,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2381557293551002059, guid: 2be5c5462d505d6468f3f34042fb17a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.82
+      value: -4.24
       objectReference: {fileID: 0}
     - target: {fileID: 2381557293551002059, guid: 2be5c5462d505d6468f3f34042fb17a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.62
+      value: 2.43
       objectReference: {fileID: 0}
     - target: {fileID: 2381557293551002059, guid: 2be5c5462d505d6468f3f34042fb17a7, type: 3}
       propertyPath: m_LocalPosition.z

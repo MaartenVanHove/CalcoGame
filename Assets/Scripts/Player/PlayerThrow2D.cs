@@ -17,14 +17,12 @@ public class PlayerThrow2D : MonoBehaviour
     public float pickupRadius = 1.5f;
     public float hitRadius = 1.2f;
 
-    private Rigidbody2D rb;
     private Camera cam;
     private ThrowableProjectile2D projectile;
     private Vector3 originalTextScale;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
 
         if (hitCounterText != null)

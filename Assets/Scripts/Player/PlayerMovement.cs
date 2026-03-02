@@ -82,8 +82,17 @@ public class PlayerMovement2D : MonoBehaviour
     void Flip()
     {
         float x = Input.GetAxisRaw("Horizontal");
-        if (x > 0) sprite.flipX = false;
-        else if (x < 0) sprite.flipX = true;
+
+        // If moving right and object is facing left
+        if (x > 0 && transform.rotation.eulerAngles.y != 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        // If moving left and object is facing right
+        else if (x < 0 && transform.rotation.eulerAngles.y != 180)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     void CheckDoubleTap()
